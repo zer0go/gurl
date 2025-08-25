@@ -84,6 +84,10 @@ func main() {
 				return cli.DefaultShowRootCommandHelp(cmd)
 			}
 
+			if !strings.HasPrefix(url, "http://") && !strings.HasPrefix(url, "https://") {
+				url = "http://" + url
+			}
+
 			method := cmd.String("request")
 			headers := make(map[string]string)
 
