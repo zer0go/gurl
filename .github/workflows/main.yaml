@@ -3,8 +3,8 @@ name: CI
 on: push
 
 env:
-  BINARY_NAME: example
-  GO_VERSION: 1.22
+  BINARY_NAME: gurl
+  GO_VERSION: 1.24
 
 jobs:
   build:
@@ -13,7 +13,7 @@ jobs:
       CGO_ENABLED: 0
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           fetch-depth: 0
       - name: Setup Go
@@ -27,7 +27,7 @@ jobs:
       - name: Run build
         run: make build-all
       - name: Create artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: ${{ env.BINARY_NAME }}-binaries
           path: build/
@@ -38,9 +38,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
       - name: Download binaries artifact
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v5
         with:
           name: ${{ env.BINARY_NAME }}-binaries
           path: build/
