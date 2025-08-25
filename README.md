@@ -11,12 +11,13 @@
 ## Installation
 
 ```sh
-go install github.com/zer0go/gurl@latest
+$ go install github.com/zer0go/gurl@latest
+$ wget -O- https://scripts.zer0.hu/install | INSTALL_DIR=/tmp sh -s zer0go/gurl
 ```
 
 ## Usage
 
 ```sh
-gurl https://example.com
-gurl -X POST -d '{"a":"b"}' -H 'content-type: application/json' https://postman-echo.com/post
+$ gurl https://example.com
+$ gurl -X POST -d '{"a":"b"}' -H 'content-type: application/json' https://postman-echo.com/post
 ```
