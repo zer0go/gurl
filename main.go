@@ -182,5 +182,6 @@ func main() {
 
 	if err := cmd.Run(context.Background(), os.Args); err != nil {
 		fmt.Println("gurl:", err)
+		os.Exit(1)
 	}
 }
